@@ -2,9 +2,11 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
+
         try {
-            System.out.println(HttpStatusChecker.getStatusImage(200)); // https://http.cat/200.jpg
-            System.out.println(HttpStatusChecker.getStatusImage(10000)); // Викидає Exception
+            HttpStatusImageDownloader.downloadStatusImage(200);
+            HttpStatusImageDownloader.downloadStatusImage(404);
+            HttpStatusImageDownloader.downloadStatusImage(10000);
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
