@@ -1,6 +1,7 @@
 package org.example;
 import java.io.*;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 
 public class HttpStatusImageDownloader {
@@ -15,7 +16,7 @@ public class HttpStatusImageDownloader {
         }
     }
     private static void saveImage(String imageUrl, int code) throws IOException {
-        URL url = new URL(imageUrl);
+        URL url =  URI.create(imageUrl).toURL();
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
 

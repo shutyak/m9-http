@@ -2,6 +2,7 @@ package org.example;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 
 public class HttpStatusChecker {
@@ -15,7 +16,7 @@ public class HttpStatusChecker {
         }
     }
     private static boolean isImageAvailable(String imageUrl) throws IOException {
-        URL url = new URL(imageUrl);
+        URL url = URI.create(imageUrl).toURL();
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("HEAD");
         int responseCode = connection.getResponseCode();
